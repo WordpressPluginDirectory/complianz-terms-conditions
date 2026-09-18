@@ -24,10 +24,10 @@ jQuery(document).ready(function ($) {
     });
 
     // Color bullet in support forum block
-    $(".cmplz-trick a").hover(function() {
+    $(".cmplz-trick a").on("mouseenter", function() {
         $(this).find('.cmplz-bullet').css("background-color","#009fff");
         $(this).find('.cmplz-trick a, .cmplz-tips-tricks-content').css("color","#009fff");
-    }, function() {
+    }).on("mouseleave", function() {
         $(this).find('.cmplz-bullet').css("background-color",""); //to remove property set it to ''
         $(this).find('.cmplz-trick a, .cmplz-tips-tricks-content').css("color","");
     });
@@ -223,12 +223,12 @@ jQuery(document).ready(function ($) {
                 condition_answers.forEach(function (condition_answer) {
                     value = get_input_value(question);
 
-                    if ($('select[name=' + question + ']').length) {
-                        value = Array($('select[name=' + question + ']').val());
+                    if ($('select[name="' + question + '"]').length) {
+                        value = Array($('select[name="' + question + '"]').val());
                     }
 
-                    if ($("input[name='" + question + "[" + condition_answer + "]" + "']").length) {
-                        if ($("input[name='" + question + "[" + condition_answer + "]" + "']").is(':checked')) {
+                    if ($("input[name=\"" + question + "[" + condition_answer + "]" + "\"]").length) {
+                        if ($("input[name=\"" + question + "[" + condition_answer + "]" + "\"]").is(':checked')) {
                             conditionMet = true;
                             value = [];
                         } else {
@@ -277,11 +277,11 @@ jQuery(document).ready(function ($) {
 
     function get_input_value(fieldName) {
 
-        if ($('input[name=' + fieldName + ']').attr('type') == 'text') {
-            return $('input[name^=' + fieldName + ']').val();
+        if ($('input[name="' + fieldName + '"]').attr('type') == 'text') {
+            return $('input[name^="' + fieldName + '"]').val();
         } else {
             var checked_boxes = [];
-            $('input[name=' + fieldName + ']:checked').each(function () {
+            $('input[name="' + fieldName + '"]:checked').each(function () {
                 checked_boxes[checked_boxes.length] = $(this).val();
             });
             return checked_boxes;
@@ -380,7 +380,7 @@ jQuery(document).ready(function ($) {
 						$(this).removeClass('cmplz-deleted-page').addClass('cmplz-valid-page');
 						$(this).parent().find('.cmplz-icon').replaceWith(response.icon);
 					});
-					btn.html(response.new_button_text);
+					btn.text(response.new_button_text);
 					btn.removeAttr('disabled');
 				} else {
 					btn.html(oldBtnHtml);

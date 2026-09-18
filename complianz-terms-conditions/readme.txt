@@ -1,11 +1,11 @@
 === Complianz - Terms and Conditions ===
-Contributors: RogierLankhorst, aahulsebos, leonwimmenhoeve, paapst
+Contributors: RogierLankhorst, aahulsebos, leonwimmenhoeve, paapst, gdom3
 Tags: terms, conditions, webshop, legal, terms and conditions
 Requires at least: 5.0
 License: GPL3
-Requires PHP: 7.2
-Tested up to: 6.5
-Stable tag: 1.2.8
+Requires PHP: 7.4
+Tested up to: 7.1
+Stable tag: 1.4.1
 
 Configure your own Terms and Conditions specific to your service or webshop.
 
@@ -19,9 +19,9 @@ Complianz - Terms and Conditions is a stand-alone plugin from Complianz. A simpl
 * A full-featured Terms & Conditions applicable to most businesses and personal endeavours, and available for editing if needed.
 * Can be used stand-alone or fully integrated with the Complianz - GDPR/CCPA Cookie Consent plugin.
 
-Are you missing anything or have suggestions? Leave an issue, or do a pull request on [GitHub](https://github.com/Really-Simple-Plugins/complianz-terms-conditions).
+Are you missing anything or have suggestions? Leave an issue, or do a pull request on [GitHub](https://github.com/complianz/complianz-terms-conditions).
 
-Check out other plugins developed by Really Simple Plugins: [Complianz - GDPR/CCPA Cookie Consent](https://wordpress.org/plugins/complianz-gdpr/), [Really Simple SSL](https://wordpress.org/plugins/really-simple-ssl/) & [Burst Statistics](https://wordpress.org/plugins/burst-statistics/).
+Check out other plugins developed by Complianz: [Complianz - GDPR/CCPA Cookie Consent](https://complianz.io/).
 
 [Contact](https://complianz.io/support/) us if you have any questions, issues, or suggestions. Complianz - Terms & Conditions is developed by [Complianz B.V.](https://complianz.io).
 
@@ -46,6 +46,36 @@ The Terms & Conditions have their own [CSS classes](https://complianz.io/styling
 Terms and Conditions, on the web, also known as Terms of Service or Terms of Use, is an agreement explaining the terms, rules, and guidelines to which a user must agree before entering a contractual relationship with the website owner.
 
 == Change log ==
+= 1.4.1 =
+* September 16th, 2026
+* Fix: repaired malformed placeholders in community translations (e.g. Czech) that could trigger a fatal error on PHP 8; a damaged translation now degrades gracefully instead of crashing the site.
+* Improvement: tested and confirmed compatible with WordPress 7.1.
+
+= 1.4.0 =
+* July 27th, 2026
+* New: built-in online withdrawal function for EU Directive 2023/2673, available as a Withdrawal page, a Gutenberg block, and a shortcode.
+* New: the wizard now lets you choose between the Complianz-provided withdrawal form and linking to your own withdrawal function; the generated Terms & Conditions text reflects your choice.
+* New: withdrawal requests are sent to the merchant by email (with the consumer as Reply-To) and the consumer receives an acknowledgement of receipt; an on-screen confirmation is shown after submitting.
+* Improvement: the withdrawal form is accessible and localized, with honeypot, minimum-time and rate-limit anti-abuse protection and a cache-safe nonce.
+* Improvement: removed the legacy withdrawal-form PDF generation and cleaned up stale generated withdrawal PDFs on upgrade. The Terms & Conditions document download is unaffected.
+
+= 1.3.1 =
+* June 19th, 2026
+* Improvement: simplified the withdrawal section (EU Directive 2023/2673) - users now provide a link to their own withdrawal function, which is required.
+* Improvement: updated the right of withdrawal text and removed references to the model/paper withdrawal form.
+* Fix: required fields with a display condition are now correctly enforced when their condition applies.
+* Improvement: tested and confirmed compatible with WordPress 7.0.
+* Fix: replaced a deprecated jQuery .hover() call in the admin script, removing a jQuery Migrate deprecation notice on WordPress 7.0 (jQuery 3.7).
+
+= 1.3.0 =
+* March 24th, 2026
+* Improvement: raised minimum PHP requirement to 7.4.
+* Fix: updated Gutenberg block to API version 3 for WordPress 6.9+ iframe editor compatibility.
+* Fix: security hardening in admin JavaScript (DOM XSS).
+* Improvement: upgraded mpdf to v8.2.7.
+* Fix: deferred translation loading for WordPress 6.7 compatibility.
+* Fix: code quality and static analysis improvements.
+
 = 1.2.8 =
 * May 7th 2024
 * Improvement: changed email obfuscation to use core WordPress functionality
